@@ -1,0 +1,17 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap");
+
+body{
+    font-family: 'Anton', sans-serif!important;
+    background-color: rgb(7, 144, 169);
+}
+
+.cat-img{
+width: 100px ;
+height: 100px ;
+border-radius: 50%;
+}
+
+.cat-img-big{
+    width: 150px ;
+    border-radius: 50%;
+}

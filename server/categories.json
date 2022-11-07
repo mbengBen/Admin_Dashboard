@@ -1,0 +1,41 @@
+{
+ "categories": [
+  {
+    "id": 1,
+    "description": "Erste Hilfe am Hund",
+    "image": "https://cdn-icons-png.flaticon.com/512/235/235416.png"
+    
+  },
+  {
+    "id": 2,
+    "description": "Haut & Fell",
+    "image": "https://cdn-icons-png.flaticon.com/512/1498/1498923.png"
+  },
+  {
+    "id": 3,
+    "description": "Hundeumgang",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS691gsYULmnNluJxDRYiFMEMtAgGs_Z4FC3w&usqp=CAU"
+  },
+  {
+    "id": 4,
+    "description": "Parasiten & Bakterien",
+    "image": "https://www.iconpacks.net/icons/3/free-dog-icon-6469-thumb.png"
+  },
+  {
+    "id": 5,
+    "description":  "Pflegeprodukte",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSm5swAi75pjqmpJOTtb7dCus4vCjEXQKNdRGLo1tvdpHGXNkNBVnwIIbMi9SYXYFq0BkY&usqp=CAU"
+  },
+  {
+    "id": 6,
+    "description": "Techniken & Werkzeuge",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUNL91QBQfxGJXD9b1zH3g4wCvP4A3J3-na_iOzLZgL9fu6zWRzL9TYkhyriwGMy15Az4&usqp=CAU"
+  },
+  {
+    "id ": 7,
+    "description": "Zähne,Krallen,Ohren",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5qhwOmPY5OKEVllZhqzLFuvJIkP3L_2UjV5WczWg3f-kCtS12CdF-N2sOBdSzO6g-SO4&usqp=CAU"
+  }
+] 
+}
+
