@@ -1,8 +1,8 @@
 export const ENV = {
     baseLocal : {
-        apiUrl : 'http://172.18.0.1:8000/api/',
+        apiUrl : 'http://194.163.172.123:8080/api',
     },
     baseProd : {
-        apiUrl : '',
+        apiUrl : 'http://194.163.172.123:8080/api',
     }
 }

@@ -6,7 +6,7 @@
                     <h3>Login Page</h3>
                     <hr />
                 </div>
-                <form @submit.prevent="onPressed()">
+                <form @submit.prevent="submit">
                 <div class="form-group">
                     <!-- Email input -->
                     <div class="form-outline mb-4">
@@ -43,7 +43,7 @@
                       </div>
                     
                       <!-- Submit button -->
-                      <button type="button" class="btn btn-primary btn-block mb-4">Log in</button>
+                      <button type="button" class="btn btn-primary btn-block mb-4" @click="submit">Log in</button>
                     
                       <!-- Register buttons -->
                       <div class="text-center">
@@ -74,7 +74,13 @@
 </template>
 
 <script>
+import { ENV } from "../api/env";
+import { mapGetters } from 'vuex';
 export default {
+  name: 'login',
+  computed: {
+     ...mapGetters(["loggedIn"]),
+  },
   data() {
     return {
       email: '',
@@ -94,7 +100,25 @@ export default {
       if (this.errors.length) {
         return false;
       }
-    }
+    },
+    submit: function() {
+        //  this.$v.$touch();
+
+        // if(!this.$v.$invalid) {
+                    let args = {
+                        username: this.email,
+                        password: this.password
+                    };
+                    this.isLoading = true;
+                    this.$store.dispatch('loginHandler', { args }).then(() => {
+                         setTimeout(() => {
+                            this.isLoading = false;
+                        }, 5000)
+                    }).catch(error => {
+                        this.isLoading = false;
+                    });
+       }
+    //  }
   }
 };
 </script>

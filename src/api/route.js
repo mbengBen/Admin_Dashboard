@@ -1,58 +1,21 @@
-const ROUTES = {
+import axios from "axios";
+export const routes = {
     //médicament routes
     "Auth" : {
         "Login" : {
             "method" : "POST",
             // "url" : "/login"
-            "url" : "/oauth/token"
+            "url" : "/authenticate"
         },
-        "LoginAfterRedirect" : {
-            "method" : "POST",
-            // "url" : "/login"
-            "url" : "/oauth/redirect/token"
-        },
-        "Email" : {
-            "method" : "POST",
-            // "url" : "/login"
-            "url" : "/password/emailVersion"
-        },
-
-        "SmsReset" : {
-            "method" : "POST",
-            // "url" : "/login"
-            "url" : "/password/smsVersion"
-        },
-
-        "SecretReset" : {
-            "method" : "PUT",
-            "url" : "/secretReset/:user_id"
-        },
-
-        "Reset" : {
-            "method" : "POST",
-            // "url" : "/login"
-            "url" : "/password/reset"
-        },
-
         "Register" : {
             "method" : "POST",
+            // "url" : "/login"
             "url" : "/register"
         },
-
-        "Logout" : {
-            "method" : "POST",
-            "url" : "/logout"
-        },
-
-        "UpdatePassword" : {
-            "method" : "POST",
-            "url" : "/update-password"
-        }
     },
-  
-    //recommandation routes
   };
   
-  export default ROUTES;
+  export default routes;
   
+
   
