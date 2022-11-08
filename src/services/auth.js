@@ -1,21 +1,43 @@
-/**
- * Importation des modules nécessaires
- */
- import Axios from '../api';
- import routes from '@/api/route';
-import Auth from '@/models/auth';
+/*****************************/
+/*** Import des mdules nécessires ***/
+import Axios from './caller.service'
 
- class AuthServvice {
-
-    login() {
-        return Axios.post(routes.Auth.Login);
-    }
-
-    register(){
-        return Axios.post(routes.Auth.Register);
-    }
-
+//fonction de connection
+let register = (credentials) => {
+    return Axios.post('/register', credentials)
 }
 
-export default new AuthServvice();
+//fonction de connection
+let login = (credentials) => {
+    return Axios.post('/login', credentials)
+}
 
+//fonction de deconnection, ici on supprime tout simplement le token du localstorage
+let logout = () => {
+    localStorage.removeItem('token')
+}
+
+//stockage du token
+let saveToken = (token) => {
+    localStorage.setItem('token', token)
+}
+
+//on recupere le token
+let getToken = () => {
+    return localStorage.getItem('token')
+}
+
+//methode qui determine si on est connectee ou pas
+let isLogged = () => {
+    let token = localStorage.getItem('token')
+    return !!token
+}
+
+export const auth = {
+    register,
+    login,
+    logout,
+    saveToken,
+    getToken,
+    isLogged,
+}

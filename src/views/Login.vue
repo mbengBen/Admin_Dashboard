@@ -6,12 +6,12 @@
                     <h3>Login Page</h3>
                     <hr />
                 </div>
-                <form @submit.prevent="submit">
+                <form @submit.prevent="Login">
                 <div class="form-group">
                     <!-- Email input -->
                     <div class="form-outline mb-4">
                       <label class="form-label" for="form2Example1">Email address</label>
-                        <input type="email" id="form2Example1" class="form-control" v-model="email" />
+                        <input type="email" id="form2Example1" class="form-control" v-model="user.email" />
                         <div class = "error" v-if= "errors.email">
                           {{errors.email}}
                         </div>
@@ -20,7 +20,7 @@
                       <!-- Password input -->
                       <div class="form-outline mb-4">
                         <label class="form-label" for="form2Example2">Password</label>
-                        <input type="password" id="form2Example2" class="form-control" v-model= "password"/>
+                        <input type="password" id="form2Example2" class="form-control" v-model= "user.password"/>
                         <div class = "error" v-if= "errors.password">
                           {{errors.password}}
                         </div>
@@ -43,7 +43,7 @@
                       </div>
                     
                       <!-- Submit button -->
-                      <button type="button" class="btn btn-primary btn-block mb-4" @click="submit">Log in</button>
+                      <button type="button" class="btn btn-primary btn-block mb-4" @click="Login">Log in</button>
                     
                       <!-- Register buttons -->
                       <div class="text-center">
@@ -83,8 +83,10 @@ export default {
   },
   data() {
     return {
-      email: '',
-      password: '',
+      user: {
+          email: '',
+          password: '',
+      },
       errors: [],
     };
   },
@@ -101,23 +103,11 @@ export default {
         return false;
       }
     },
-    submit: function() {
-        //  this.$v.$touch();
-
-        // if(!this.$v.$invalid) {
-                    let args = {
-                        username: this.email,
-                        password: this.password
-                    };
-                    this.isLoading = true;
-                    this.$store.dispatch('loginHandler', { args }).then(() => {
-                         setTimeout(() => {
-                            this.isLoading = false;
-                        }, 5000)
-                    }).catch(error => {
-                        this.isLoading = false;
-                    });
-       }
+    Login(){
+      console.log(this.user);
+      this.$store.dispatch('LOGIN', this.user);
+      this.$router.push("/categories");
+    }
     //  }
   }
 };

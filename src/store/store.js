@@ -1,10 +1,10 @@
 import {createStore} from 'vuex';
-import auth from './modules/auth/index'
+import { authModule } from '../store/modules/auth/index';
 
 
 const store = createStore({
     modules: {
-        auth,
+        authModule,
     },
 })
 
