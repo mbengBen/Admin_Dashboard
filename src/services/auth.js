@@ -9,7 +9,7 @@ let register = (credentials) => {
 
 //fonction de connection
 let login = (credentials) => {
-    return Axios.post('/login', credentials)
+    return Axios.post('/authenticate', credentials)
 }
 
 //fonction de deconnection, ici on supprime tout simplement le token du localstorage

@@ -78,9 +78,6 @@ import { ENV } from "../api/env";
 import { mapGetters } from 'vuex';
 export default {
   name: 'login',
-  computed: {
-     ...mapGetters(["loggedIn"]),
-  },
   data() {
     return {
       user: {

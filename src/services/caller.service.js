@@ -6,7 +6,7 @@ import { auth } from "../services/auth"
 import router from '@/router'
 
 const Axios = axios.create({
-    baseURL: 'http://127.0.0.1:8000/api'
+    baseURL: 'http://194.163.172.123:8080/api'
 })
 
 /**
