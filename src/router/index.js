@@ -10,10 +10,9 @@ import Signup from '@/views/Signup.vue'
 
 const routes = [
   {
-    path: '/',
-    name: 'home',
-    redirect:'/categories',
-    component: HomeView
+    path: '/categories',
+    name: 'CategoryManager',
+    component: CategoryManager
   },
   {
     path: '/categories',
@@ -46,9 +45,10 @@ const routes = [
     component: PageNotFound
   },
   {
-    path: '/Login',
+    path: '/',
     name: 'Login',
     component: Login
+        // component: HomeView
   },
   {
     path: '/Signup',
