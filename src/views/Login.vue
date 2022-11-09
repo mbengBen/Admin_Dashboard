@@ -6,6 +6,7 @@
                     <h3>Login Page</h3>
                     <hr />
                 </div>
+                <Message />
                 <form @submit.prevent="Login">
                 <div class="form-group">
                     <!-- Email input -->
@@ -43,7 +44,12 @@
                       </div>
                     
                       <!-- Submit button -->
-                      <button type="button" class="btn btn-primary btn-block mb-4" @click="Login">Log in</button>
+                      <div class="d-flex justify-content-center" v-if="isLoading">
+                        <div class="loading"></div>
+                      </div>
+                      <div v-else>
+                        <button type="button" class="btn btn-primary btn-block mb-4" @click="Login">Log in</button>
+                      </div>
                     
                       <!-- Register buttons -->
                       <div class="text-center">
@@ -76,8 +82,13 @@
 <script>
 import { ENV } from "../api/env";
 import { mapGetters } from 'vuex';
+import Axios from '../services/caller.service'
+import Message from "../components/Message.vue"
 export default {
   name: 'login',
+  components: {
+    Message
+  },
   data() {
     return {
       user: {
@@ -85,6 +96,7 @@ export default {
           password: '',
       },
       errors: [],
+      isLoading: false
     };
   },
   methods: {
@@ -105,9 +117,12 @@ export default {
         email: this.user.email,
         password: this.user.password
       }
-      console.log(args);
-      this.$store.dispatch('LOGIN', args);
-      this.$router.push("/categories");
+      this.$store.dispatch('LOGIN',args);
+      console.log(this);
+      // if(this){
+
+      // }
+      // this.$router.push("/categories");
     }
     //  }
   }

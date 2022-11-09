@@ -5,6 +5,7 @@ import axios from 'axios'
 import { ENV } from "../api/env";
 import { auth } from "../services/auth"
 import router from '@/router'
+import store from "../store/store"
 
 const Axios = axios.create({
     baseURL: ENV.baseLocal.apiUrl,
@@ -22,7 +23,7 @@ Axios.interceptors.request.use(request => {
 
     //Si connectee on ajoute le token dans l'entete
     if(auth.isLogged()){
-        request.headers.Authorization = 'Bearer '+auth.getToken()
+        request.headers.Authorization = 'Bearer '+auth.getToken() 
     }
     // console.log(request);
 
@@ -33,13 +34,33 @@ Axios.interceptors.request.use(request => {
  * interceptor des reponse de l'api
  */
 Axios.interceptors.response.use(response => {
-    return response
+    console.log(response);
+    store.commit('displayError', {
+        dis: true,
+        message: response.statusText
+
+    })
+    this.$router.push("/categories");
+    // return response
     }, error => {
-        console.log(error.response.status);
-        if(error.response.status == 401){
-            auth.logout;
-            router.push('/')
+        if(!error.response){
+            store.commit('displayError', {
+                dis: true,
+                message: error.message
+            })
+        }else{
+            if(error.response.status == 401){
+                auth.logout;
+                router.push('/')
+            }
+            store.commit('displayError', {
+                dis: true,
+                message: error.response.data.title
+            })
         }
+
+        
+        console.log(error);
 })
 
 export default Axios;
