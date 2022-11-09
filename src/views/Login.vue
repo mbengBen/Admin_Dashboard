@@ -118,11 +118,7 @@ export default {
         password: this.user.password
       }
       this.$store.dispatch('LOGIN',args);
-      console.log(this);
-      // if(this){
-
-      // }
-      // this.$router.push("/categories");
+      this.$router.push("/categories");
     }
     //  }
   }
