@@ -101,8 +101,12 @@ export default {
       }
     },
     Login(){
-      console.log(this.user);
-      this.$store.dispatch('LOGIN', this.user);
+      let args = {
+        email: this.user.email,
+        password: this.user.password
+      }
+      console.log(args);
+      this.$store.dispatch('LOGIN', args);
       this.$router.push("/categories");
     }
     //  }

@@ -2,12 +2,18 @@
 /*** Import du module nécessires ***/
 
 import axios from 'axios'
+import { ENV } from "../api/env";
 import { auth } from "../services/auth"
 import router from '@/router'
 
 const Axios = axios.create({
-    baseURL: 'http://194.163.172.123:8080/api'
+    baseURL: ENV.baseLocal.apiUrl,
+    headers: {
+        "Content-Type": "application/json",
+        "Accept": '*/*',
+    },
 })
+
 
 /**
  * interceptor pour injection token
@@ -32,7 +38,7 @@ Axios.interceptors.response.use(response => {
         console.log(error.response.status);
         if(error.response.status == 401){
             auth.logout;
-            router.push('/login')
+            router.push('/')
         }
 })
 
