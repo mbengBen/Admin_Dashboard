@@ -81,11 +81,17 @@
 
 <script>
 import { ENV } from "../api/env";
-import { mapGetters } from 'vuex';
+import { mapGetters, mapMutations } from 'vuex';
 import Axios from '../services/caller.service'
 import Message from "../components/Message.vue"
 export default {
   name: 'login',
+  computed: {
+    ...mapGetters([
+        "getMessage",
+        "getError"
+    ])
+ },
   components: {
     Message
   },
@@ -100,6 +106,9 @@ export default {
     };
   },
   methods: {
+    ...mapMutations([
+        "displayError"
+    ]),
     onPressed() {
       let validations = new SignupValidations(
         this.email, 
@@ -118,7 +127,8 @@ export default {
         password: this.user.password
       }
       this.$store.dispatch('LOGIN',args);
-      this.$router.push("/categories");
+      // this.$router.push("/categories");
+      // console.log(this.getMessage);
     }
     //  }
   }

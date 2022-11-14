@@ -9,14 +9,14 @@ export const authModule = {
     actions: {
         //LOGIN
         LOGIN(context, user) {
-          auth.login(user)
-            .then(res => {
-                context.commit("SET_USER", res.data); 
-                   if(res.data.id_token){
-                      //sav token
-                    localStorage.setItem("id_token", res.data.id_token)
-                }
-            })
+        //   auth.login(user)
+            // .then(res => {
+            //     context.commit("SET_USER", res.data); 
+            //        if(res.data.id_token){
+            //           //sav token
+            //         localStorage.setItem("id_token", res.data.id_token)
+            //     }
+            // })
 
         },
     },
