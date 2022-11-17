@@ -8,15 +8,15 @@ export const authModule = {
     }),
     actions: {
         //LOGIN
-        LOGIN(context, user) {
-        //   auth.login(user)
-            // .then(res => {
-            //     context.commit("SET_USER", res.data); 
-            //        if(res.data.id_token){
-            //           //sav token
-            //         localStorage.setItem("id_token", res.data.id_token)
-            //     }
-            // })
+        async LOGIN(context, user) {
+          await auth.login(user)
+            .then(res => {
+                context.commit("SET_USER", res.data.id_token); 
+                   if(res.data.id_token){
+                      //sav token
+                    localStorage.setItem("id_token", res.data.id_token)
+                }
+            })
 
         },
     },
@@ -31,7 +31,7 @@ export const authModule = {
         }
     },
     getters: {
-        getUser(user){
+        getUser(state){
             return state.user;
         },
 

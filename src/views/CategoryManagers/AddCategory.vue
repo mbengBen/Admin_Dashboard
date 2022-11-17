@@ -72,7 +72,7 @@ import { categorieService } from '@/services/categorieService';
             return this.$router.push('/categories/add');
           }
         } catch (error) {
-            console.log(error);
+            // console.log(error);
           
         }
       }

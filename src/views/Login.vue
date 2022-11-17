@@ -121,13 +121,13 @@ export default {
         return false;
       }
     },
-    Login(){
+    async Login(){
       let args = {
         email: this.user.email,
         password: this.user.password
       }
-      this.$store.dispatch('LOGIN',args);
-      // this.$router.push("/categories");
+      await this.$store.dispatch('LOGIN',args);
+      this.$router.push("/categories");
       // console.log(this.getMessage);
     }
     //  }

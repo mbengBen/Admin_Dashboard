@@ -34,13 +34,13 @@ Axios.interceptors.request.use(request => {
  * interceptor des reponse de l'api
  */
 Axios.interceptors.response.use(response => {
-    console.log(response);
+    // console.log(response);
     store.commit('displayError', {
         dis: true,
         message: response.statusText
 
     })
-    this.$router.push("/categories");
+    router.push("/categories");
     // return response
     }, error => {
         if(!error.response){
@@ -51,7 +51,7 @@ Axios.interceptors.response.use(response => {
         }else{
             if(error.response.status == 401){
                 auth.logout;
-                router.push('/')
+                // router.push('/')
             }
             store.commit('displayError', {
                 dis: true,

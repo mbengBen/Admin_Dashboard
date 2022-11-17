@@ -8,6 +8,7 @@ import PageNotFound from '@/views/PageNotFound/PageNotFound'
 import Login from '@/views/Login.vue'
 import Signup from '@/views/Signup.vue'
 import { authGuard } from "../helpers/auth.Guard";
+import store from "../store/store"
 
 const routes = [
   {
@@ -66,10 +67,15 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from, next) => {
-  console.log(to);
-  if(to.matched[0].name == 'CategoryManager'){
-      authGuard()
+  // console.log(to);
+  // console.log(next);
+  // getUser
+  if (store.getters.getUser) {
+    next();
+    return;
+  }else {
+    next();
   }
-  next();
+  next('/register');
 })
 export default router
