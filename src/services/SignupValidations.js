@@ -1,8 +1,15 @@
 export default class SignupValidations {
     constructor(email, password, birthday) {
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.phonenumber = phonenumber;
         this.password = password;
         this.email = email;
         this.birthday = birthday;
+        this.location.country = country;
+        this.location.postalcode = postalcode;
+        this.location.city = city;
+
 
     }
     //email Validation 

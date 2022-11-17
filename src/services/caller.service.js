@@ -40,7 +40,6 @@ Axios.interceptors.response.use(response => {
         message: response.statusText
 
     })
-    router.push("/categories");
     // return response
     }, error => {
         if(!error.response){
@@ -51,16 +50,12 @@ Axios.interceptors.response.use(response => {
         }else{
             if(error.response.status == 401){
                 auth.logout;
-                // router.push('/')
             }
             store.commit('displayError', {
                 dis: true,
                 message: error.response.data.title
             })
         }
-
-        
-        console.log(error);
 })
 
 export default Axios;

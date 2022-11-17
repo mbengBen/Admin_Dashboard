@@ -19,6 +19,17 @@ export const authModule = {
             })
 
         },
+        async register(context, user){
+            console.log(user);
+            await auth.register(user).then(res => {
+                // console.log(res);
+                context.commit("SET_USER", res.data.id_token); 
+                   if(res.data.id_token){
+                      //sav token
+                    localStorage.setItem("id_token", res.data.id_token)
+                }
+            })
+        }
     },
     mutations: {
       SET_USER(state, payload) {
