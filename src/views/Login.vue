@@ -127,7 +127,12 @@ export default {
         password: this.user.password
       }
       await this.$store.dispatch('LOGIN',args);
-      this.$router.push("/categories");
+      await console.log(this.getMessage);
+      if(this.getMessage == "Unauthorized"){
+      }else if(this.getMessage == "Network Error"){
+      }else{
+        this.$router.push("/categories");
+      }
       // console.log(this.getMessage);
     }
     //  }

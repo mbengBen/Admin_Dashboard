@@ -68,9 +68,10 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
   // console.log(to);
-  // console.log(next);
+  console.log(store.getters.getUser);
   // getUser
   if (store.getters.getUser) {
+    authGuard();
     next();
     return;
   }else {
